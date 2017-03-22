@@ -4,6 +4,10 @@
 // IIFE - Immediately Invoked Function Expression
 
 (function () { // Beginning of the IIFE
+/// <reference path="../objects/Vehicle.ts"/>
+/// <reference path="../objects/Car.ts"/>
+/// <reference path="../objects/Point.ts"/>
+/// <reference path="../collections/games.ts"/>
 
 // App entry point
 function Start() {
@@ -75,7 +79,58 @@ function LoadPageContent() {
 
 // Loads the content of the Home Page
 function LoadHomePage() {
-  let data = {};
+
+  // Date Class Examples
+  let today = new Date();
+
+  let months = ["January", "February", "March", "April", "May",
+                "June", "July", "August", "September", "October", "November", "December"];
+
+  let day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  let currentMonth = months[today.getMonth()];
+  let currentDay = day[today.getDay()];
+
+  console.log(currentDay + " " + currentMonth + " " + today.getDate() + ", " + today.getFullYear());
+
+  // Number Examples
+  let myNumber = 10003.14157826;
+
+  console.log(myNumber.toFixed(4));
+  console.log(myNumber.toString());
+  console.log(myNumber.toLocaleString());
+
+  // Math Examples
+  let die1 = Math.floor(Math.random() * 6) + 1;
+  console.log(die1);
+  let die2 = Math.floor(Math.random() * 6) + 1;
+  console.log(die2);
+  let dice = die1 + die2; // 2 six-sided dice
+  console.log(dice);
+
+let myCar:objects.Car = new objects.Car(4, 2, "Honda", "Civic");
+myCar.drives();
+myCar.honks();
+
+console.log("myCar has " + myCar.doors + " doors");
+
+  // first point
+  let Point1:objects.Point = new objects.Point(10, 10);
+
+  // second point
+  let Point2:objects.Point = new objects.Point(20, 20);
+
+  // calculate distance between two points
+  let distance = objects.Point.Distance(Point1, Point2);
+  console.log(distance);
+
+
+
+  let game: collections.Game[];
+
+  let data = {
+    games: game
+  }
 
       // STEP 1 - instantiate an XHR object
       let XHR = new XMLHttpRequest();
